@@ -2,15 +2,15 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#include "linux/fb.h"
+//#include "linux/fb.h"
 #include <linux/dvb/dmx.h>
 #include <linux/dvb/version.h>
 #include <linux/dvb/frontend.h>
 
-#include <nexus_config.h>
-#include <nexus_core_utils.h>
-#include <nxclient.h>
-#include <default_nexus.h>
+//#include <nexus_config.h>
+//#include <nexus_core_utils.h>
+//#include <nxclient.h>
+//#include <default_nexus.h>
 
 //#include <mono/jit/jit.h>
 //#include <mono/metadata/assembly.h>
@@ -29,8 +29,6 @@
 #include "demuxer.h"
 #include "decoder.h"
 #include "frontend.h"
-#include "framebuffer.h"
-
 
 //void InitDVBWrapper()
 //{
