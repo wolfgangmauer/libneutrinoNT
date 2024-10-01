@@ -20,6 +20,7 @@
 #include <mono/metadata/loader.h>
 
 
+#include "ci.h"
 #include "demuxer.h"
 #include "decoder.h"
 #include "frontend.h"
