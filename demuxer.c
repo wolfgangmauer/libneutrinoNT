@@ -264,7 +264,8 @@ int neutrinoNT_Read(int fd, MonoArray** array, DMX_CHANNEL_TYPE type, int len, i
 			return 0;
 		}
 	}
-	unsigned char* buffer = mono_array_addr(*array, unsigned char, 0);
+	printf("unsigned char* buffer = mono_array_addr(*array, uint8_t, 0);");
+	uint8_t* buffer = mono_array_addr(*array, uint8_t, 0);
 	rc = read(fd, buffer, len);
 	if (rc < 0)
 		perror("Read");
