@@ -115,7 +115,7 @@ bool neutrinoNT_SectionFilter(int fd, uint16_t pid, MonoArray* filter, MonoArray
 
 	/* timeout */
 	int to = 0;
-	switch (filter[0])
+	switch (sct.filter.filter[0])
 	{
 	case 0x00: /* program_association_section */
 		to = 2000;
