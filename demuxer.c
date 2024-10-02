@@ -78,10 +78,16 @@ static const char* aDMXCHANNELTYPE[] = {
 	"DMX_PCR_ONLY_CHANNEL"
 };
 
-bool neutrinoNT_SectionFilter(int fd, uint16_t pid, uint8_t* filter, uint8_t* mask, int len, int timeout, uint8_t* mode)
+bool neutrinoNT_SectionFilter(int fd, uint16_t pid, MonoArray* filter, MonoArray* mask, int len, int timeout, MonoArray* mode)
 {
 	if (fd < 0)
 		return false;
+	
+	unsigned char* _mode = NULL;
+	unsigned char* _filter = mono_array_addr(filter, unsigned char, 0);
+	unsigned char* _mask = mono_array_addr(mask, unsigned char, 0);
+	if (mode != NULL)
+		_mode = mono_array_addr(mode, unsigned char, 0);
 
 	struct dmx_sct_filter_params sct;
 	memset(&sct, 0, sizeof(struct dmx_sct_filter_params));
@@ -218,7 +224,7 @@ bool neutrinoNT_SectionFilter(int fd, uint16_t pid, uint8_t* filter, uint8_t* ma
 	return true;
 }
 
-int neutrinoNT_Read(int fd, uint8_t* buffer, DMX_CHANNEL_TYPE type, int len, int timeout)
+int neutrinoNT_Read(int fd, MonoArray** array, DMX_CHANNEL_TYPE type, int len, int timeout)
 {
 	int rc;
 	struct pollfd ufds;
@@ -258,6 +264,7 @@ int neutrinoNT_Read(int fd, uint8_t* buffer, DMX_CHANNEL_TYPE type, int len, int
 			return 0;
 		}
 	}
+	unsigned char* buffer = mono_array_addr(*array, unsigned char, 0);
 	rc = read(fd, buffer, len);
 	if (rc < 0)
 		perror("Read");
