@@ -16,8 +16,8 @@ typedef enum {
 } DMX_CHANNEL_TYPE;
 
 bool neutrinoNT_PesFilter(int fd, DMX_CHANNEL_TYPE type, uint16_t pid, const dmx_input_t input);
-bool neutrinoNT_SectionFilter(int fd, uint16_t pid, uint8_t* filter, uint8_t* mask, int len, int timeout, uint8_t* mode);
-int neutrinoNT_Read(int fd, uint8_t* array, DMX_CHANNEL_TYPE type, int len, int timeout);
+bool neutrinoNT_SectionFilter(int fd, uint16_t pid, MonoArray* filter, MonoArray* mask, int len, int timeout, MonoArray* mode);
+int neutrinoNT_Read(int fd, MonoArray** array, DMX_CHANNEL_TYPE type, int len, int timeout);
 
 int neutrinoNT_DMX_SET_SOURCE(int fd, dmx_source_t number);
 int neutrinoNT_DMX_SET_BUFFER_SIZE(int fd, int bufferSize);
