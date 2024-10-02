@@ -101,14 +101,14 @@ bool neutrinoNT_SectionFilter(int fd, uint16_t pid, MonoArray* filter, MonoArray
 	sct.pid = pid;
 
 	/* filter */
-	memcpy(sct.filter.filter, filter, len);
+	memcpy(sct.filter.filter, _filter, len);
 
 	/* mask */
-	memcpy(sct.filter.mask, mask, len);
+	memcpy(sct.filter.mask, _mask, len);
 
 	/* mode */
 	if (mode)
-		memcpy(sct.filter.mode, mode, len);
+		memcpy(sct.filter.mode, _mode, len);
 
 	/* flag */
 	sct.flags = DMX_IMMEDIATE_START | DMX_CHECK_CRC;
