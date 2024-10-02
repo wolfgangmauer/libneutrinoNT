@@ -224,7 +224,7 @@ bool neutrinoNT_SectionFilter(int fd, uint16_t pid, MonoArray* filter, MonoArray
 	return true;
 }
 
-int neutrinoNT_Read(int fd, MonoArray* array, DMX_CHANNEL_TYPE type, int len, int timeout)
+int neutrinoNT_Read(int fd, MonoArray** array, DMX_CHANNEL_TYPE type, int len, int timeout)
 {
 	int rc;
 	struct pollfd ufds;
@@ -264,7 +264,7 @@ int neutrinoNT_Read(int fd, MonoArray* array, DMX_CHANNEL_TYPE type, int len, in
 			return 0;
 		}
 	}
-	unsigned char* buffer = mono_array_addr(array, unsigned char, 0);
+	unsigned char* buffer = mono_array_addr(*array, unsigned char, 0);
 	rc = read(fd, buffer, len);
 	if (rc < 0)
 		perror("Read");
