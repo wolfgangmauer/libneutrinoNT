@@ -25,7 +25,7 @@
 #include "decoder.h"
 #include "frontend.h"
 
-void InitlibNeutrinoNT()
+extern "C" void InitlibNeutrinoNT()
 {
 	mono_add_internal_call("neutrinoNT.NativeMethods::neutrinoNT_PesFilter", (void*)neutrinoNT_PesFilter);
 	mono_add_internal_call("neutrinoNT.NativeMethods::neutrinoNT_SectionFilter", (void*)neutrinoNT_SectionFilter);
