@@ -272,7 +272,7 @@ int neutrinoNT_Read(int fd, MonoArray** array, DMX_CHANNEL_TYPE type, int len, i
 }
 int neutrinoNT_DMX_SET_SOURCE(int fd, dmx_source_t number)
 {
-	return ioctl(fd, DMX_SET_SOURCE, number);
+	return ioctl(fd, DMX_SET_SOURCE, &number);
 }
 int neutrinoNT_DMX_SET_BUFFER_SIZE(int fd, int bufferSize)
 {
