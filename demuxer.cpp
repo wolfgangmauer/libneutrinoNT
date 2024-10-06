@@ -300,5 +300,5 @@ int neutrinoNT_DMX_SET_PES_FILTER(int fd, struct dmx_pes_filter_params* params)
 }
 int neutrinoNT_DMX_SET_FILTER(int fd, struct dmx_sct_filter_params* params)
 {
-	return ioctl(fd, DMX_SET_PES_FILTER, params);
+	return ioctl(fd, DMX_SET_FILTER, params);
 }
