@@ -1,5 +1,24 @@
 
 #pragma once
+#include <stdint.h>
+
+#include <linux/dvb/dmx.h>
+#include <linux/dvb/version.h>
+#include <linux/dvb/frontend.h>
+
+#include <mono/jit/jit.h>
+#include <mono/metadata/assembly.h>
+#include <mono/metadata/mono-debug.h>
+#include <mono/metadata/mono-config.h>
+#include <mono/metadata/debug-helpers.h>
+#include <mono/metadata/appdomain.h>
+#include <mono/metadata/object.h>
+#include <mono/metadata/threads.h>
+#include <mono/metadata/environment.h>
+#include <mono/metadata/mono-gc.h>
+#include <mono/utils/mono-publib.h>
+#include <mono/metadata/loader.h>
+
 #include <libdvbv5/dvb-dev.h>
 
 dvb_open_descriptor* neutrinoNT_dvb_dev_open(dvb_device *dvb, dvb_dev_list* dvb_dmx, int flags);
