@@ -1,6 +1,10 @@
 
 #include "dvbv5.h"
 
+int neutrinoNT_dvb_desc_get_type(dvb_desc* descriptor)
+{
+	return (int)descriptor->type;
+}
 dvb_table_nit_transport* neutrinoNT_dvb_table_transport_first(dvb_table_nit* table)
 {
 	return table->transport;
