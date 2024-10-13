@@ -29,25 +29,25 @@ dvb_desc* neutrinoNT_dvb_descriptor_next(dvb_desc* descriptor)
 {
 	return descriptor->next;
 }
-dvb_desc* neutrinoNT_dvb_sdt_descriptor_first(dvb_table_sdt* table)
+dvb_desc* neutrinoNT_dvb_sdt_descriptor_first(dvb_table_sdt_service* service)
 {
-	return table->descriptor;
+	return service->descriptor;
 }
-dvb_desc* neutrinoNT_dvb_pmt_descriptor_first(dvb_table_pmt* table)
+dvb_desc* neutrinoNT_dvb_pmt_descriptor_first(dvb_table_pmt_stream* stream)
 {
-	return table->descriptor;
+	return stream->descriptor;
 }
-dvb_desc* neutrinoNT_dvb_nit_descriptor_first(dvb_table_nit* table)
+dvb_desc* neutrinoNT_dvb_nit_descriptor_first(dvb_table_nit_transport* transport)
 {
-	return table->descriptor;
+	return transport->descriptor;
 }
-dvb_desc* neutrinoNT_dvb_pat_descriptor_first(dvb_table_pat* table)
+dvb_desc* neutrinoNT_dvb_pat_descriptor_first(dvb_table_pat_program* program)
 {
-	return table->descriptor;
+	return program->descriptor;
 }
-dvb_desc* neutrinoNT_dvb_eit_descriptor_first(dvb_table_eit* table)
+dvb_desc* neutrinoNT_dvb_eit_descriptor_first(dvb_table_eit_event* event)
 {
-	return table->descriptor;
+	return event->descriptor;
 }
 int neutrinoNT_dvb_table_pmt_init(dvb_v5_fe_parms *parms, MonoArray* buf, int buflen, dvb_table_pmt **table)
 {
