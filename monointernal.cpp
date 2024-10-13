@@ -82,6 +82,10 @@ extern "C" void InitlibNeutrinoNT()
 	mono_add_internal_call("dvbv5.NativeMethods::dvb_dev_read", (void*)neutrinoNT_dvb_dev_read);
 	mono_add_internal_call("dvbv5.NativeMethods::dvb_table_pmt_init", (void*)neutrinoNT_dvb_table_pmt_init);
 	mono_add_internal_call("dvbv5.NativeMethods::dvb_table_sdt_init", (void*)neutrinoNT_dvb_table_sdt_init);
+	mono_add_internal_call("dvbv5.NativeMethods::dvb_table_service_first", (void*)neutrinoNT_dvb_table_service_first);
+	mono_add_internal_call("dvbv5.NativeMethods::dvb_table_service_next", (void*)neutrinoNT_dvb_table_service_next);
+	mono_add_internal_call("dvbv5.NativeMethods::dvb_table_stream_first", (void*)neutrinoNT_dvb_table_stream_first);
+	mono_add_internal_call("dvbv5.NativeMethods::dvb_table_stream_next", (void*)neutrinoNT_dvb_table_stream_next);
 }
 
 //int main(int argc, char* argv[])
