@@ -1,10 +1,10 @@
 
 #include "dvbv5.h"
 
-int neutrinoNT_dvb_eit_descriptor_get(dvb_table_eit_event* event, MonoString** name, MonoString** language, MonoString** text, long starttime, uint duration)
+int neutrinoNT_dvb_eit_descriptor_get(dvb_table_eit_event* event, MonoString** name, MonoString** language, MonoString** text, long* starttime, uint* duration)
 {
-	starttime = event->start.tm_gmtoff;
-	duration = event->duration;
+	*starttime = event->start.tm_gmtoff;
+	*duration = event->duration;
 	dvb_desc_foreach(_descriptor, event)
 	{
 	    switch (_descriptor->type) {
