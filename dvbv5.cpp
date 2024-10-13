@@ -5,7 +5,7 @@ dvb_table_nit_transport* neutrinoNT_dvb_table_transport_first(dvb_table_nit* tab
 {
 	return table->transport;
 }
-dvb_table_nit_transport* neutrinoNT_dvb_table_transport_next(dvb_table_nit_transport* transport);
+dvb_table_nit_transport* neutrinoNT_dvb_table_transport_next(dvb_table_nit_transport* transport)
 {
 	return transport->next;
 }
