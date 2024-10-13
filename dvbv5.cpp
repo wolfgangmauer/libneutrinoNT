@@ -1,6 +1,14 @@
 
 #include "dvbv5.h"
 
+dvb_table_nit_transport* neutrinoNT_dvb_table_transport_first(dvb_table_nit* table)
+{
+	return table->transport;
+}
+dvb_table_nit_transport* neutrinoNT_dvb_table_transport_next(dvb_table_nit_transport* transport);
+{
+	return transport->next;
+}
 dvb_table_sdt_service* neutrinoNT_dvb_table_service_first(dvb_table_sdt* table)
 {
 	return table->service;
