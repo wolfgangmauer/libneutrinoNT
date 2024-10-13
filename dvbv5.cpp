@@ -18,7 +18,7 @@ int neutrinoNT_dvb_eit_descriptor_get(dvb_table_eit_event* event, MonoString* na
 	    case extended_event_descriptor:
 		auto extendedEventDescriptor = (dvb_desc_event_extended*)_descriptor;
 		if (extendedEventDescriptor->text)
-		    text.mono_string_new(mono_domain_get(), extendedEventDescriptor->text);
+		    text = mono_string_new(mono_domain_get(), extendedEventDescriptor->text);
 		break;
 	    }
 	}
