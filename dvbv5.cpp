@@ -49,10 +49,6 @@ dvb_desc* neutrinoNT_dvb_nit_descriptor_first(dvb_table_nit_transport* transport
 {
 	return transport->descriptor;
 }
-dvb_desc* neutrinoNT_dvb_pat_descriptor_first(dvb_table_pat_program* program)
-{
-	return program->descriptor;
-}
 dvb_desc* neutrinoNT_dvb_eit_descriptor_first(dvb_table_eit_event* event)
 {
 	return event->descriptor;
