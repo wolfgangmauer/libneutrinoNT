@@ -7,6 +7,8 @@
 #include <linux/dvb/version.h>
 #include <linux/dvb/frontend.h>
 
+#include "libdvbv5/dvb-dev.h"
+
 #include <mono/jit/jit.h>
 #include <mono/metadata/assembly.h>
 #include <mono/metadata/mono-debug.h>
@@ -26,6 +28,10 @@
 #include "decoder.h"
 #include "frontend.h"
 
+extern "C" struct dvb_v5_fe_parms* dvb_dev_get_params(dvb_device* dvb_device)
+{
+	return dvb_device->fe_parms;
+}
 extern "C" int dvb_poll(int fd, unsigned int seconds)
 {
     fd_set set;
