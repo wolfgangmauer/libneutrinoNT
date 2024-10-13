@@ -25,6 +25,29 @@
 #include "decoder.h"
 #include "frontend.h"
 
+extern "C" int dvb_poll(int fd, unsigned int seconds)
+{
+    fd_set set;
+    struct timeval timeout;
+    int ret;
+
+    /* Initialize the file descriptor set. */
+    FD_ZERO(&set);
+    FD_SET(fd, &set);
+
+    /* Initialize the timeout data structure. */
+    //timeout.tv_sec = milliseconds / 1000;
+    //timeout.tv_usec = (milliseconds % 1000) * 1000;
+    timeout.tv_sec = seconds;
+    timeout.tv_usec = 0;
+
+    /* `select' logfuncreturns 0 if timeout, 1 if input available, -1 if error. */
+    do ret = select(FD_SETSIZE, &set, NULL, NULL, &timeout);
+    while (ret == -1 && errno == EINTR);
+
+    return ret;
+}
+
 extern "C" void InitlibNeutrinoNT()
 {
 	mono_add_internal_call("neutrinoNT.NativeMethods::neutrinoNT_PesFilter", (void*)neutrinoNT_PesFilter);
