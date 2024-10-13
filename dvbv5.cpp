@@ -6,7 +6,7 @@ int neutrinoNT_dvb_table_pmt_init(struct dvb_v5_fe_parms *parms, MonoArray* buf,
 	unsigned char* _buf = mono_array_addr(buf, unsigned char, 0);
 	return dvb_table_pmt_init(parms, _buf, buflen, &table);
 }
-int neutrinoNT_dvb_table_sdt_init(struct dvb_v5_fe_parms *parms, byte[] buf, int buflen, struct dvb_table_sdt **table)
+int neutrinoNT_dvb_table_sdt_init(struct dvb_v5_fe_parms *parms, MonoArray* buf, int buflen, struct dvb_table_sdt **table)
 {
 	unsigned char* _buf = mono_array_addr(buf, unsigned char, 0);
 	return dvb_table_sdt_init(parms, _buf, buflen, &table);
