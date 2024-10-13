@@ -1,12 +1,12 @@
 
 #include "dvbv5.h"
 
-int neutrinoNT_dvb_dev_dmx_set_section_filter(dvb_open_descriptor *open_dev, pid, unsigned filtsize, MonoArray* filter,MonoArray* mask, MonoArray* mode, unsigned int flags = DMX_IMMEDIATE_START | DMX_CHECK_CRC)
+int neutrinoNT_dvb_dev_dmx_set_section_filter(dvb_open_descriptor *open_dev, int pid, unsigned filtsize, MonoArray* filter,MonoArray* mask, MonoArray* mode, unsigned int flags = DMX_IMMEDIATE_START | DMX_CHECK_CRC)
 {
-	unsigned char* _mode = null;
+	unsigned char* _mode = NULL;
 	unsigned char* _filter = mono_array_addr(filter, unsigned char, 0);
 	unsigned char* _mask = mono_array_addr(mask, unsigned char, 0);
-	if (mode != null)
+	if (mode != NULL)
 		_mode = mono_array_addr(mode, unsigned char, 0);
 	return dvb_dev_dmx_set_section_filter(open_dev, pid, filtsize, _filter, _mask, _mode, flags);
 }
