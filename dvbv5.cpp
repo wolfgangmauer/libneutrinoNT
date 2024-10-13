@@ -17,6 +17,38 @@ dvb_table_pmt_stream* neutrinoNT_dvb_table_stream_next(dvb_table_pmt_stream* str
 {
 	return stream->next;
 }
+dvb_table_eit_event* neutrinoNT_dvb_table_event_first(dvb_table_eit* table)
+{
+	return table->event;
+}
+dvb_table_eit_event* neutrinoNT_dvb_table_event_next(dvb_table_eit_event* event)
+{
+	return event->next;
+}
+dvb_desc* neutrinoNT_dvb_descriptor_next(dvb_desc* descriptor)
+{
+	return descriptor->next;
+}
+dvb_desc* neutrinoNT_dvb_sdt_descriptor_first(dvb_table_sdt* table)
+{
+	return table->descriptor;
+}
+dvb_desc* neutrinoNT_dvb_pmt_descriptor_first(dvb_table_pmt* table)
+{
+	return table->descriptor;
+}
+dvb_desc* neutrinoNT_dvb_nit_descriptor_first(dvb_table_nit* table)
+{
+	return table->descriptor;
+}
+dvb_desc* neutrinoNT_dvb_pat_descriptor_first(dvb_table_pat* table)
+{
+	return table->descriptor;
+}
+dvb_desc* neutrinoNT_dvb_eit_descriptor_first(dvb_table_eit* table)
+{
+	return table->descriptor;
+}
 int neutrinoNT_dvb_table_pmt_init(dvb_v5_fe_parms *parms, MonoArray* buf, int buflen, dvb_table_pmt **table)
 {
 	unsigned char* _buf = mono_array_addr(buf, unsigned char, 0);
