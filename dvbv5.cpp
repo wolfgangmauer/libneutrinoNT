@@ -1,13 +1,21 @@
 
 #include "dvbv5.h"
 
-dvb_table_sdt_service* neutrinoNT_dvb_table_service_first(dvb_table_pmt* table)
+dvb_table_sdt_service* neutrinoNT_dvb_table_service_first(dvb_table_sdt* table)
 {
 	return table->service;
 }
 dvb_table_sdt_service* neutrinoNT_dvb_table_service_next(dvb_table_sdt_service* service)
 {
 	return service->next;
+}
+dvb_table_pmt_stream* neutrinoNT_dvb_table_stream_first(dvb_table_pmt* table)
+{
+	return table->stream
+}
+dvb_table_pmt_stream* neutrinoNT_dvb_table_stream_next(dvb_table_pmt_stream* stream)
+{
+	return stream->next;
 }
 int neutrinoNT_dvb_table_pmt_init(dvb_v5_fe_parms *parms, MonoArray* buf, int buflen, dvb_table_pmt **table)
 {
