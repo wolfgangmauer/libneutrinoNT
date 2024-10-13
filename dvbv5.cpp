@@ -11,7 +11,7 @@ dvb_table_sdt_service* neutrinoNT_dvb_table_service_next(dvb_table_sdt_service* 
 }
 dvb_table_pmt_stream* neutrinoNT_dvb_table_stream_first(dvb_table_pmt* table)
 {
-	return table->stream
+	return table->stream;
 }
 dvb_table_pmt_stream* neutrinoNT_dvb_table_stream_next(dvb_table_pmt_stream* stream)
 {
