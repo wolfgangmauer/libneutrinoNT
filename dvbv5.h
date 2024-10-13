@@ -56,8 +56,8 @@ dvb_table_pmt_stream* neutrinoNT_dvb_table_stream_first(dvb_table_pmt* table);
 dvb_table_pmt_stream* neutrinoNT_dvb_table_stream_next(dvb_table_pmt_stream* stream);
 dvb_table_eit_event* neutrinoNT_dvb_table_event_first(dvb_table_eit* table);
 dvb_table_eit_event* neutrinoNT_dvb_table_event_next(dvb_table_eit_event* event);
-dvb_table_eit_event* neutrinoNT_dvb_table_transport_first(dvb_table_nit* table);
-dvb_table_eit_event* neutrinoNT_dvb_table_transport_next(dvb_table_nit_transport* transport);
+dvb_table_nit_transport* neutrinoNT_dvb_table_transport_first(dvb_table_nit* table);
+dvb_table_nit_transport* neutrinoNT_dvb_table_transport_next(dvb_table_nit_transport* transport);
 
 dvb_desc* neutrinoNT_dvb_descriptor_next(dvb_desc* descriptor);
 
