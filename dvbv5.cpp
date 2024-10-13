@@ -1,6 +1,11 @@
 
 #include "dvbv5.h"
 
+int neutrinoNT_dvb_dev_read(dvb_open_descriptor *open_dev, MonoArray* buffer, unsigned count)
+{
+	unsigned char* _buffer = mono_array_addr(filter, unsigned char, 0);
+	return dvb_dev_read(open_dev, _buffer, count);
+}
 int neutrinoNT_dvb_dev_dmx_set_section_filter(dvb_open_descriptor *open_dev, int pid, unsigned filtsize, MonoArray* filter,MonoArray* mask, MonoArray* mode, unsigned int flags)
 {
 	unsigned char* _mode = NULL;
