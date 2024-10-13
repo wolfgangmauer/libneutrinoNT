@@ -1,6 +1,14 @@
 
 #include "dvbv5.h"
 
+dvb_table_sdt_service* neutrinoNT_dvb_table_service_first(dvb_table_pmt* table)
+{
+	return table->service;
+}
+dvb_table_sdt_service* neutrinoNT_dvb_table_service_next(dvb_table_sdt_service* service)
+{
+	return service->next;
+}
 int neutrinoNT_dvb_table_pmt_init(dvb_v5_fe_parms *parms, MonoArray* buf, int buflen, dvb_table_pmt **table)
 {
 	unsigned char* _buf = mono_array_addr(buf, unsigned char, 0);
