@@ -25,45 +25,9 @@
 #include "demuxer.h"
 #include "decoder.h"
 #include "frontend.h"
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "dvbv5.h"
 
-#include <libdvbv5/dvb-dev.h>
-
-dvb_open_descriptor* neutrinoNT_dvb_dev_open(dvb_device *dvb, dvb_dev_list* dvb_dmx, int flags)
-{
-	return dvb_dev_open(dvb, dvb_dmx->sysname, flags);
-}
-
-struct dvb_v5_fe_parms* dvb_dev_get_params(dvb_device* dvb_device)
-{
-	return dvb_device->fe_parms;
-}
-int dvb_poll(int fd, unsigned int seconds)
-{
-    fd_set set;
-    struct timeval timeout;
-    int ret;
-
-    /* Initialize the file descriptor set. */
-    FD_ZERO(&set);
-    FD_SET(fd, &set);
-
-    /* Initialize the timeout data structure. */
-    //timeout.tv_sec = milliseconds / 1000;
-    //timeout.tv_usec = (milliseconds % 1000) * 1000;
-    timeout.tv_sec = seconds;
-    timeout.tv_usec = 0;
-
-    /* `select' logfuncreturns 0 if timeout, 1 if input available, -1 if error. */
-    do ret = select(FD_SETSIZE, &set, NULL, NULL, &timeout);
-    while (ret == -1 && errno == EINTR);
-
-    return ret;
-}
-
-void InitlibNeutrinoNT()
+extern "C" void InitlibNeutrinoNT()
 {
 	mono_add_internal_call("neutrinoNT.NativeMethods::neutrinoNT_PesFilter", (void*)neutrinoNT_PesFilter);
 	mono_add_internal_call("neutrinoNT.NativeMethods::neutrinoNT_SectionFilter", (void*)neutrinoNT_SectionFilter);
@@ -111,10 +75,11 @@ void InitlibNeutrinoNT()
 	mono_add_internal_call("neutrinoNT.NativeMethods::neutrinoNT_FE_SET_PROPERTY", (void*)neutrinoNT_FE_SET_PROPERTY);
 	mono_add_internal_call("neutrinoNT.NativeMethods::neutrinoNT_CA_GET_SLOT_INFO", (void*)neutrinoNT_CA_GET_SLOT_INFO);
 	mono_add_internal_call("neutrinoNT.NativeMethods::neutrinoNT_CA_RESET", (void*)neutrinoNT_CA_RESET);
+	
+	mono_add_internal_call("dvbv5.NativeMethods::dvb_dev_open", (void*)neutrinoNT_dvb_dev_open);
+	mono_add_internal_call("dvbv5.NativeMethods::dvb_dev_dmx_set_section_filter", (void*)neutrinoNT_dvb_dev_dmx_set_section_filter);
+	mono_add_internal_call("dvbv5.NativeMethods::dvb_poll", (void*)neutrinoNT_dvb_poll);
 }
-#ifdef __cplusplus
-}
-#endif
 //int main(int argc, char* argv[])
 //{
 //#ifdef DEBUG
