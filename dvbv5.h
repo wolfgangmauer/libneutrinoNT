@@ -24,11 +24,17 @@ extern "C" {
 #endif
 
 #include <libdvbv5/dvb-dev.h>
+#include <libdvbv5/sdt.h>
+#include <libdvbv5/pmt.h>
+#include <libdvbv5/eit.h>
+#include <libdvbv5/pat.h>
+#include <libdvbv5/nit.h>
 
 #ifdef __cplusplus
 }
 #endif
-
+int neutrinoNT_dvb_table_pmt_init(struct dvb_v5_fe_parms *parms, MonoArray* buf, int buflen, struct dvb_table_pmt **table);
+int neutrinoNT_dvb_table_sdt_init(struct dvb_v5_fe_parms *parms, byte[] buf, int buflen, struct dvb_table_sdt **table);
 dvb_open_descriptor* neutrinoNT_dvb_dev_open(dvb_device *dvb, dvb_dev_list* dvb_dmx, int flags);
 struct dvb_v5_fe_parms* neutrinoNT_dvb_dev_get_params(dvb_device* dvb_device);
 int neutrinoNT_dvb_poll(int fd, unsigned int seconds);
