@@ -1,5 +1,5 @@
 
-#include <libdvbv5/dvb-dev.h>
+#include "dvbv5.h"
 
 dvb_open_descriptor* neutrinoNT_dvb_dev_open(dvb_device *dvb, dvb_dev_list* dvb_dmx, int flags)
 {
