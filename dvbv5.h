@@ -19,7 +19,15 @@
 #include <mono/utils/mono-publib.h>
 #include <mono/metadata/loader.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <libdvbv5/dvb-dev.h>
+
+#ifdef __cplusplus
+}
+#endif
 
 dvb_open_descriptor* neutrinoNT_dvb_dev_open(dvb_device *dvb, dvb_dev_list* dvb_dmx, int flags);
 struct dvb_v5_fe_parms* neutrinoNT_dvb_dev_get_params(dvb_device* dvb_device);
