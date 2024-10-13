@@ -91,9 +91,9 @@ int neutrinoNT_dvb_table_sdt_init(dvb_v5_fe_parms *parms, MonoArray* buf, int bu
 	unsigned char* _buf = mono_array_addr(buf, unsigned char, 0);
 	return dvb_table_sdt_init(parms, _buf, buflen, table);
 }
-int neutrinoNT_dvb_dev_read(dvb_open_descriptor *open_dev, MonoArray* buffer, unsigned count)
+int neutrinoNT_dvb_dev_read(dvb_open_descriptor *open_dev, MonoArray** buffer, unsigned count)
 {
-	unsigned char* _buffer = mono_array_addr(buffer, unsigned char, 0);
+	unsigned char* _buffer = mono_array_addr(*buffer, unsigned char, 0);
 	return dvb_dev_read(open_dev, _buffer, count);
 }
 int neutrinoNT_dvb_dev_dmx_set_section_filter(dvb_open_descriptor *open_dev, int pid, unsigned filtsize, MonoArray* filter,MonoArray* mask, MonoArray* mode, unsigned int flags)
