@@ -79,6 +79,8 @@ extern "C" void InitlibNeutrinoNT()
 	mono_add_internal_call("dvbv5.NativeMethods::dvb_dev_open", (void*)neutrinoNT_dvb_dev_open);
 	mono_add_internal_call("dvbv5.NativeMethods::dvb_dev_dmx_set_section_filter", (void*)neutrinoNT_dvb_dev_dmx_set_section_filter);
 	mono_add_internal_call("dvbv5.NativeMethods::dvb_poll", (void*)neutrinoNT_dvb_poll);
+	mono_add_internal_call("dvbv5.NativeMethods::dvb_dev_read", (void*)neutrinoNT_dvb_dev_read);
+	
 }
 //int main(int argc, char* argv[])
 //{
