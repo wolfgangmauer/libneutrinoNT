@@ -72,6 +72,7 @@ dvb_desc* neutrinoNT_dvb_eit_descriptor_first(dvb_table_eit_event* event);
 int neutrinoNT_dvb_table_pmt_init(dvb_v5_fe_parms *parms, MonoArray* buf, int buflen, dvb_table_pmt **table);
 int neutrinoNT_dvb_table_sdt_init(dvb_v5_fe_parms *parms, MonoArray* buf, int buflen, dvb_table_sdt **table);
 int neutrinoNT_dvb_table_nit_init(dvb_v5_fe_parms *parms, MonoArray* buf, int buflen, dvb_table_nit **table);
+int neutrinoNT_dvb_table_eit_init(dvb_v5_fe_parms *parms, MonoArray* buf, int buflen, dvb_table_eit **table);
 
 dvb_open_descriptor* neutrinoNT_dvb_dev_open(dvb_device *dvb, dvb_dev_list* dvb_dmx, int flags);
 struct dvb_v5_fe_parms* neutrinoNT_dvb_dev_get_params(dvb_device* dvb_device);
