@@ -7,8 +7,6 @@
 #include <linux/dvb/version.h>
 #include <linux/dvb/frontend.h>
 
-#include "libdvbv5/dvb-dev.h"
-
 #include <mono/jit/jit.h>
 #include <mono/metadata/assembly.h>
 #include <mono/metadata/mono-debug.h>
@@ -30,6 +28,9 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#include <libdvbv5/dvb-dev.h>
+
 dvb_open_descriptor* neutrinoNT_dvb_dev_open(dvb_device *dvb, dvb_dev_list* dvb_dmx, int flags)
 {
 	return dvb_dev_open(dvb, dvb_dmx->sysname, flags);
