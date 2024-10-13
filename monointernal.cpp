@@ -27,17 +27,19 @@
 #include "demuxer.h"
 #include "decoder.h"
 #include "frontend.h"
-
-extern "C" dvb_open_descriptor* neutrinoNT_dvb_dev_open(dvb_device *dvb, dvb_dev_list* dvb_dmx, int flags)
+#ifdef __cplusplus
+extern "C" {
+#endif
+dvb_open_descriptor* neutrinoNT_dvb_dev_open(dvb_device *dvb, dvb_dev_list* dvb_dmx, int flags)
 {
 	return dvb_dev_open(dvb, dvb_dmx->sysname, flags);
 }
 
-extern "C" struct dvb_v5_fe_parms* dvb_dev_get_params(dvb_device* dvb_device)
+struct dvb_v5_fe_parms* dvb_dev_get_params(dvb_device* dvb_device)
 {
 	return dvb_device->fe_parms;
 }
-extern "C" int dvb_poll(int fd, unsigned int seconds)
+int dvb_poll(int fd, unsigned int seconds)
 {
     fd_set set;
     struct timeval timeout;
@@ -60,7 +62,7 @@ extern "C" int dvb_poll(int fd, unsigned int seconds)
     return ret;
 }
 
-extern "C" void InitlibNeutrinoNT()
+void InitlibNeutrinoNT()
 {
 	mono_add_internal_call("neutrinoNT.NativeMethods::neutrinoNT_PesFilter", (void*)neutrinoNT_PesFilter);
 	mono_add_internal_call("neutrinoNT.NativeMethods::neutrinoNT_SectionFilter", (void*)neutrinoNT_SectionFilter);
@@ -109,7 +111,9 @@ extern "C" void InitlibNeutrinoNT()
 	mono_add_internal_call("neutrinoNT.NativeMethods::neutrinoNT_CA_GET_SLOT_INFO", (void*)neutrinoNT_CA_GET_SLOT_INFO);
 	mono_add_internal_call("neutrinoNT.NativeMethods::neutrinoNT_CA_RESET", (void*)neutrinoNT_CA_RESET);
 }
-
+#ifdef __cplusplus
+}
+#endif
 //int main(int argc, char* argv[])
 //{
 //#ifdef DEBUG
