@@ -50,6 +50,7 @@ extern "C" {
 #ifdef __cplusplus
 }
 #endif
+int neutrinoNT_dvb_desc_get_type(dvb_desc* descriptor);
 dvb_table_sdt_service* neutrinoNT_dvb_table_service_first(dvb_table_sdt* table);
 dvb_table_sdt_service* neutrinoNT_dvb_table_service_next(dvb_table_sdt_service* service);
 dvb_table_pmt_stream* neutrinoNT_dvb_table_stream_first(dvb_table_pmt* table);
