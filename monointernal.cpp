@@ -28,6 +28,11 @@
 #include "decoder.h"
 #include "frontend.h"
 
+extern "C" dvb_open_descriptor* neutrinoNT_dvb_dev_open(dvb_device *dvb, dvb_dev_list* dvb_dmx, int flags)
+{
+	return dvb_dev_open(dvb, dvb_dmx->sysname, flags);
+}
+
 extern "C" struct dvb_v5_fe_parms* dvb_dev_get_params(dvb_device* dvb_device)
 {
 	return dvb_device->fe_parms;
