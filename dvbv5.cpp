@@ -119,10 +119,6 @@ dvb_open_descriptor* neutrinoNT_dvb_dev_open(dvb_device *dvb, dvb_dev_list* dvb_
 {
 	return dvb_dev_open(dvb, dvb_dmx->sysname, flags);
 }
-struct dvb_v5_fe_parms* neutrinoNT_dvb_dev_get_params(dvb_device* dvb_device)
-{
-	return dvb_device->fe_parms;
-}
 int neutrinoNT_dvb_poll(int fd, unsigned int seconds)
 {
     fd_set set;
