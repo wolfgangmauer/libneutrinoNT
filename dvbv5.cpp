@@ -137,6 +137,6 @@ int neutrinoNT_dvb_poll(struct dvb_v5_fe_parms *parms, int fd, unsigned int seco
 
     /* `select' logfuncreturns 0 if timeout, 1 if input available, -1 if error. */
     do ret = select(FD_SETSIZE, &set, NULL, NULL, &timeout);
-    while (!parms->p.abort && ret == -1 && errno == EINTR);
+    while (!parms->abort && ret == -1 && errno == EINTR);
     return ret;
 }
