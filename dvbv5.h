@@ -75,6 +75,7 @@ int neutrinoNT_dvb_table_nit_init(dvb_v5_fe_parms *parms, MonoArray* buf, int bu
 int neutrinoNT_dvb_table_eit_init(dvb_v5_fe_parms *parms, MonoArray* buf, int buflen, dvb_table_eit **table);
 
 dvb_open_descriptor* neutrinoNT_dvb_dev_open(dvb_device *dvb, dvb_dev_list* dvb_dmx, int flags);
-int neutrinoNT_dvb_poll(int fd, unsigned int seconds);
+//int neutrinoNT_dvb_poll(int fd, unsigned int seconds);
+int neutrinoNT_dvb_poll(dvb_v5_fe_parms *parms, int fd, unsigned int seconds);
 int neutrinoNT_dvb_dev_dmx_set_section_filter(dvb_open_descriptor *open_dev, int pid, unsigned filtsize, MonoArray* filter,MonoArray* mask, MonoArray* mode, unsigned int flags);
 int neutrinoNT_dvb_dev_read(dvb_open_descriptor *open_dev, MonoArray** buffer, unsigned count);
