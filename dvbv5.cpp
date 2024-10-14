@@ -119,7 +119,7 @@ dvb_open_descriptor* neutrinoNT_dvb_dev_open(dvb_device *dvb, dvb_dev_list* dvb_
 {
 	return dvb_dev_open(dvb, dvb_dmx->sysname, flags);
 }
-int neutrinoNT_dvb_poll(int fd, unsigned int seconds)
+int neutrinoNT_dvb_poll(struct dvb_v5_fe_parms *parms, int fd, unsigned int seconds)
 {
     fd_set set;
     struct timeval timeout;
@@ -137,6 +137,6 @@ int neutrinoNT_dvb_poll(int fd, unsigned int seconds)
 
     /* `select' logfuncreturns 0 if timeout, 1 if input available, -1 if error. */
     do ret = select(FD_SETSIZE, &set, NULL, NULL, &timeout);
-    while (ret == -1 && errno == EINTR);
+    while (!parms->p.abort && ret == -1 && errno == EINTR);
     return ret;
 }
