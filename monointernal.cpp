@@ -27,6 +27,18 @@
 #include "frontend.h"
 #include "dvbv5.h"
 
+#define LED_IOCTL_BRIGHTNESS_NORMAL 0X10
+#define LED_IOCTL_BRIGHTNESS_DEEPSTANDBY 0X11
+#define LED_IOCTL_BLINKING_TIME 0X12
+#define LED_IOCTL_SET_DEFAULT 0x13
+
+void neutrinoNT_SET_LED(int value, int what)
+{
+    int lcdfd = open("/dev/dbox/lcd0", O_RDWR);
+	ioctl(lcdfd, what, (unsigned char)value);
+    close(lcdfd);
+}
+
 extern "C" void InitlibNeutrinoNT()
 {
 	mono_add_internal_call("neutrinoNT.NativeMethods::neutrinoNT_PesFilter", (void*)neutrinoNT_PesFilter);
@@ -75,7 +87,9 @@ extern "C" void InitlibNeutrinoNT()
 	mono_add_internal_call("neutrinoNT.NativeMethods::neutrinoNT_FE_SET_PROPERTY", (void*)neutrinoNT_FE_SET_PROPERTY);
 	mono_add_internal_call("neutrinoNT.NativeMethods::neutrinoNT_CA_GET_SLOT_INFO", (void*)neutrinoNT_CA_GET_SLOT_INFO);
 	mono_add_internal_call("neutrinoNT.NativeMethods::neutrinoNT_CA_RESET", (void*)neutrinoNT_CA_RESET);
-	
+
+	mono_add_internal_call("neutrinoNT.NativeMethods::neutrinoNT_SET_LED", (void*)neutrinoNT_SET_LED);
+
 	mono_add_internal_call("dvbv5.NativeMethods::dvb_dev_open", (void*)neutrinoNT_dvb_dev_open);
 	mono_add_internal_call("dvbv5.NativeMethods::dvb_dev_dmx_set_section_filter", (void*)neutrinoNT_dvb_dev_dmx_set_section_filter);
 	mono_add_internal_call("dvbv5.NativeMethods::dvb_poll", (void*)neutrinoNT_dvb_poll);
