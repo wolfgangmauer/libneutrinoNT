@@ -35,8 +35,11 @@
 void neutrinoNT_SET_LED(int value, int what)
 {
     int lcdfd = open("/dev/dbox/lcd0", O_RDWR);
-	ioctl(lcdfd, what, (unsigned char)value);
-    close(lcdfd);
+	if (lcdfd > 0)
+    {
+    	ioctl(lcdfd, what, (unsigned char)value);
+        close(lcdfd);
+    }
 }
 
 extern "C" void InitlibNeutrinoNT()
